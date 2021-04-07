@@ -1,1 +1,1 @@
-export { docsearch as default } from './docsearch';
+export { docsearch } from './docsearch';

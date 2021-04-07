@@ -1,10 +1,9 @@
 import { plugins } from '../../rollup.base.config';
-import { getBundleBanner } from '../../scripts/getBundleBanner';
+import { createRollupConfigs } from '../../scripts/config';
 
 import pkg from './package.json';
 
-export default {
-  input: 'src/index.ts',
+const config = {
   external: ['react', 'react-dom'],
   output: {
     globals: {
@@ -12,10 +11,8 @@ export default {
       'react-dom': 'ReactDOM',
     },
     file: 'dist/umd/index.js',
-    format: 'umd',
-    sourcemap: true,
-    name: pkg.name,
-    banner: getBundleBanner(pkg),
   },
   plugins,
 };
+
+export default createRollupConfigs({ pkg, config });

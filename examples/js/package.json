@@ -1,13 +1,15 @@
 {
   "name": "@docsearch/js-example",
   "description": "DocSearch.js sandbox",
-  "version": "1.0.0-alpha.28",
+  "version": "1.0.0-alpha.34",
   "private": true,
   "license": "MIT",
   "main": "index.html",
   "scripts": {
     "build": "parcel build index.html",
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "clean": "rm -rf node_modules dist .cache yarn.lock yarn-error.log",
+    "clean:install": "yarn clean && yarn && yarn build && yarn start"
   },
   "devDependencies": {
     "parcel-bundler": "1.12.3"
@@ -17,5 +19,9 @@
     "docsearch",
     "documentation",
     "search"
-  ]
+  ],
+  "dependencies": {
+    "@docsearch/css": "../../packages/docsearch-css",
+    "@docsearch/js": "../../packages/docsearch-js"
+  }
 }

@@ -22,7 +22,7 @@
   "jsdelivr": "dist/umd/index.js",
   "scripts": {
     "build:clean": "rimraf ./dist",
-    "build:esm": "cross-env BUILD=esm rollup --config",
+    "build:esm": "babel src --root-mode upward --extensions '.ts,.tsx' --out-dir dist/esm --ignore '**/*/__tests__/'",
     "build:types": "tsc -p ./tsconfig.declaration.json --outFile ./dist/esm/index.d.ts",
     "build:umd": "cross-env BUILD=umd rollup --config",
     "build": "yarn build:clean && yarn build:umd && yarn build:esm && yarn build:types",
